@@ -16,6 +16,8 @@ return array (
 	"cart/GetTotalQuantity"=>"cart/GetTotalQuantity",
 	"cart/GetProducts"=>"cart/GetProducts",
 	"cart/UpdateProduct"=>"cart/UpdateProduct",
-	""=>"site/index"
+	"([^en|^ge])"=>"error/index",
+	""=>"site/index",
+
 )
 ?>

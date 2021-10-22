@@ -18,6 +18,13 @@ class Router{
 				else {
 					if (isset($_SESSION['user']['lang'])) $lang = $_SESSION['user']['lang'];
 					else $lang = DEFAULT_LANG;
+					if ($parameters[0]==="error") {
+						$langpack = include(ROOT.'/config/langpacks/'.$lang.'_partials.php');
+						include_once(ROOT."/controllers/ErrorController.php");
+						$errorController = new ErrorController($lang, $langpack);
+						$result = $errorController->actionIndex();
+						if ($result) break;
+					}
 				}
 				$langpack = include(ROOT.'/config/langpacks/'.$lang.'_partials.php');
 				$controllerName = array_shift($parameters).'Controller';

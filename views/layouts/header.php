@@ -48,7 +48,7 @@
                         <div class="col-sm-2 col-md-2 col-xs-4">
                             <div class="logo pull-left">
                                 <a href="<?php echo "/".$this->lang; ?>">
-                                    <img src="/template/images/home/logo.png" alt="logo" class="img-responsive">
+                                    <img src="/template/images/logo.png" alt="logo" class="img-responsive">
                                 </a>
                             </div>
                         </div>
