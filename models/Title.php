@@ -11,20 +11,22 @@ class Title{
 		$this->pageName = $this->getPageName();
 	}
 	private function getPageName(){
-		if (count($this->pagePartials)===2) return "index";
+		if (count($this->pagePartials)===2){
+			if (!in_array($this->pagePartials[1], LANGS)) return "404";
+			else return "index";
+		}
 		else{
 			if (count($this->pagePartials)>2) {
 				if ($this->pagePartials[2]==="user") return $this->pagePartials[3];
 				else return $this->pagePartials[2];
 			}
-			else if(count($this->pagePartials)===3&&in_array($this->pagePartials[1], LANGS)) return "index";
+			else if(count($this->pagePartials)===3&&in_array($this->pagePartials[1], LANGS)) 
+				return "index";
 			else return "404";
 		}
 	}
 	public function getTitle(){
-		if (array_key_exists($this->pageName, $this->titles)){
-			return $this->titles[$this->pageName];
-		}
+		if (array_key_exists($this->pageName, $this->titles)) return $this->titles[$this->pageName];
 		else if ($this->pageName==="category") {
 			$pdo = DB::getConnection();
 			$ctg = $pdo->prepare("SELECT en_name, ge_name FROM `category` WHERE id=:id");
