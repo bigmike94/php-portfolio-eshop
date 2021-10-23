@@ -36,9 +36,9 @@ function initializeProductsHTML (prodAssoc){
                                 <td class="cart_description">
                                     <h4>${products[product]["name"]}</h4>
                                         <p>Web ID: ${products[product]["code"]}</p>
-                                    </td>
+                                </td>
                                 <td class="cart_price">
-                                        <p>₾${products[product]["price"]}</p>
+                                    <p>₾${products[product]["price"]}</p>
                                 </td>
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">

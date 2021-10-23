@@ -2575,3 +2575,30 @@ h2.title {
 .recommended_items>h2{
   font-size: 2em;
 }
+.orders-history-heading{
+  border-right: 1px solid white; 
+  padding: 25px;
+  text-align: center;
+}
+.orders-history-heading:last-child{
+  border-right: none;
+}
+.stat-true{
+  color: green; 
+  font-weight: bold;
+}
+.stat-false{
+  color: red; 
+  font-weight: bold;
+}
+.stat-progr{
+  color: orange; 
+  font-weight: bold;
+}
+tbody.orders-row td {
+  padding: 10px!important;
+  text-align: center;
+}
+#orders-prods-td{
+  padding-top: 15px;
+}

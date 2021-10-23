@@ -18,13 +18,13 @@ class Cart{
 		}
 		return $productsArray;
 	}
-	public function insertOrder($user_id, $order_date, $products, $status=0){
+	public function insertOrder($user_id, $order_time, $delivery_time, $products){
         //status: 0 - new, 1-approved and in process, 2 - finished
-        $stmt = $this->pdo->prepare('INSERT INTO `orders` (user_id, order_date, products, status) VALUES (:user_id, :order_date, :products, :status)');
+        $stmt = $this->pdo->prepare('INSERT INTO `orders` (user_id, order_time, delivery_time, products) VALUES (:user_id, :order_time, :delivery_time, :products)');
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-        $stmt->bindParam(':order_date', $order_date, PDO::PARAM_INT);
+        $stmt->bindParam(':order_time', $order_time, PDO::PARAM_INT);
+        $stmt->bindParam(':delivery_time', $delivery_time, PDO::PARAM_INT);
         $stmt->bindParam(':products', $products, PDO::PARAM_STR);
-        $stmt->bindParam(':status', $status, PDO::PARAM_INT);
         $stmt->execute();
         return $this->pdo->lastInsertId();
     }

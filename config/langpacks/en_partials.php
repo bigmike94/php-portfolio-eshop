@@ -14,7 +14,20 @@ return array(
 		"cart"=>"Cart",
 		"enter"=>"Enter profile",
 		"register"=>"Registration",
-		"logout"=>"Logout"
+		"logout"=>"Logout",
+		"orders"=>"Orders",
+		"orders_page"=>array(
+			"order_no"=>"Order #",
+			"products"=>"Products",
+			"pay_status"=>"Payment status",
+			"order_date"=>"Order time",
+			"complete_date"=>"Estimate delivery time",
+			"total"=>"Total",
+			"stat_progr"=>"in progress",
+			"stat_complete"=>"Complete",
+			"pay_true"=>"Payed",
+			"pay_false"=>"Not payed"
+		)
 	),
 	"product"=>array(
 		"availability"=>"Availability", 

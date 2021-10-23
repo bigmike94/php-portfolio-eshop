@@ -101,6 +101,12 @@
                                     </li>
                                     <?php if (isset($_SESSION["user"])):?>
                                     <li>
+                                        <a href="<?php echo'/'.$this->lang.'/user/orders/';?>">
+                                            <i class="fa fa-gift"></i>
+                                           <?php echo $this->langpack["account"]["orders"]?>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="<?php echo'/'.$this->lang.'/user/profile/';?>">
                                             <i class="fa fa-user"></i>
                                             <?php echo $_SESSION["user"]["name"];?>
@@ -108,7 +114,7 @@
                                             <?php echo $this->langpack["reg_and_sign"]["profile"];?>
                                         </a>
                                     </li>
-                                     <li>
+                                    <li>
                                         <a href="<?php echo '/'.$this->lang.'/user/logout'; ?>" id="logout">
                                            <i class="fa fa-sign-out"></i>
                                             <?php echo $this->langpack["account"]["logout"]?>

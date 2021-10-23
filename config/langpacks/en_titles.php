@@ -7,6 +7,7 @@ return array(
 	"register"=>"Registration",
 	"login"=>"Authorization",
 	"404"=>"Page is not found",
-	"profile"=>"Profile"
+	"profile"=>"Profile",
+	"orders"=>"Orders list"
 );
 ?>

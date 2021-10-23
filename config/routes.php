@@ -6,6 +6,7 @@ return array (
 	"([en|ge]{2})/catalog"=>"$1/catalog/index",
 	"([en|ge]{2})/category/([0-9]+)/[a-z]+[-|/]([0-9]+)"=>"$1/catalog/category/$2/$3",
 	"([en|ge]{2})/category/([0-9]+)"=>"$1/catalog/category/$2",
+	"([en|ge]{2})/user/orders"=>"$1/user/orders",
 	"([en|ge]{2})/user/register"=>"$1/user/register",
 	"([en|ge]{2})/user/profile"=>"$1/user/profile",
 	"([en|ge]{2})/user/login"=>"$1/user/login",

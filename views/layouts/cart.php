@@ -6,11 +6,19 @@
                     <table class="table table-condensed">
                         <thead>
                             <tr class="cart_menu">
-                                <td class="image"><?php echo $this->langpack["cart"]["item"]?></td>
+                                <td class="image">
+                                    <?php echo $this->langpack["cart"]["item"]?> 
+                                </td>
                                 <td class="description"></td>
-                                <td class="price"><?php echo $this->langpack['cart']['price']?></td>
-                                <td class="quantity"><?php echo $this->langpack['cart']['quantity']?></td>
-                                <td class="total"><?php echo $this->langpack['cart']['subtotal']?></td>
+                                <td class="price">
+                                    <?php echo $this->langpack['cart']['price']?> 
+                                </td>
+                                <td class="quantity">
+                                    <?php echo $this->langpack['cart']['quantity']?> 
+                                </td>
+                                <td class="total">
+                                    <?php echo $this->langpack['cart']['subtotal']?>  
+                                </td>
                                 <td></td>
                             </tr>
                         </thead>

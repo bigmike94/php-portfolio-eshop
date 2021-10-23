@@ -5,6 +5,7 @@
 ini_set('display_error', 1);
 error_reporting(E_ALL);
 
+date_default_timezone_set("Asia/Tbilisi");
 
 define('ROOT', dirname(__FILE__));
 define('LANGS', array("ge", "en"));//allowed languages

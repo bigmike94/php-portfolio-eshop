@@ -7,14 +7,26 @@ return array(
 		"cart"=>"კალათა", 
 		"contact"=>"კონტაქტი", 
 		"latest_products"=>"უახლესი პროდუქტები",
-		"to_cart"=>"კალათაში",
-		
+		"to_cart"=>"კალათაში",	
 	),
 	"account"=>array( 
 		"cart"=>"კალათა",
 		"enter"=>"პროფილში შესვლა",
 		"register"=>"რეგისტრაცია",
-		"logout"=>"გამოსვლა"
+		"logout"=>"გამოსვლა",
+		"orders"=>"შეკვეთები",
+		"orders_page"=>array(
+			"order_no"=>"შეკვეთის #",
+			"products"=>"პროდუქტები",
+			"pay_status"=>"გადახდის სტატუსი",
+			"order_date"=>"შეკვეთის დრო",
+			"complete_date"=>"სავარაუდო მიწოდების დრო",
+			"total"=>"ჯამი",
+			"stat_progr"=>"მიმდინარე",
+			"stat_complete"=>"შესრულებული",
+			"pay_true"=>"გადახდილია",
+			"pay_false"=>"გადაუხდელია"
+		)
 	),
 	"product"=>array(
 		"availability"=>"ხელმისაწვდომობა", 
@@ -76,9 +88,9 @@ return array(
 	),
 	"cart"=>array(
 		"item"=>"პროდუქტი",
-		"price"=>"ფასი",
+		"price"=>"ერთ. ფასი",
 		"quantity"=>"რაოდენობა",
-		"subtotal"=>"ჯამური ფასი",
+		"subtotal"=>"ქვე-ჯამი",
 		"total"=>"საბოლოო ფასი",
 		"empty"=>"კალათა ცარიელია",
 		"add4chk"=>"გამოწერისთვის დაამატეთ პროდუქტები",

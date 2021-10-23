@@ -57,8 +57,14 @@ class UserController{
         $loggedIn = $this->user->checkLogged();
         if(!$loggedIn) require_once(ROOT.'/views/user/login.php');
         else header("Location: /{$this->lang}");
-        return true;
-       
+        return true; 
+    }
+     public function actionOrders(){ 
+        $title = $this->title->getTitle();
+        $loggedIn = $this->user->checkLogged();
+        if($loggedIn) require_once(ROOT.'/views/user/orders.php');
+        else header("Location: /{$this->lang}");
+        return true; 
     }
     public function actionProfile(){
         session_start();

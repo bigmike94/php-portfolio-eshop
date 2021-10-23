@@ -45,8 +45,14 @@ class CartController{
                 require_once(ROOT."/views/user/login.php");
             }
             else {
-                $order_date = time();
-                $order = $this->cart->insertOrder($_SESSION['user']['id'], $order_date, $_COOKIE['products']);
+                $order_time = time();
+                $wait_time = 3*24*3600;
+                $delivery_time = $order_time+$wait_time;//add amount of days in ms
+                $delivery_time = date("Y/m/d", $delivery_time);//convert to date string
+                $delivery_time = new DateTime($delivery_time);//date string to dateTime object to set hours
+                $delivery_time->setTime(12, 0);//set time for delivery time
+                $delivery_time = $delivery_time->getTimestamp();//convert delivery time to timestamp to insert integer to database
+                $order = $this->cart->insertOrder($_SESSION['user']['id'], $order_time, $delivery_time, $_COOKIE['products']);
                 if ($order) {
                     $_SESSION['order_success'] = true;
                     setcookie('products', null, -1, '/');
