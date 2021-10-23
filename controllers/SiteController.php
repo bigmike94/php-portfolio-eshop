@@ -14,7 +14,7 @@ class SiteController{
 		$title = $this->title->getTitle();
 		$ctgs = Category::getCtgList();
 		$latestProducts = $this->products->getProducts(10);
-		session_start();
+		if(!isset($_SESSION)) session_start();
 		if(isset($_SESSION['user']["id"])){
 			$user_id = $_SESSION['user']["id"];
 			$recommended = User::getRecommendedList($user_id);

@@ -16,18 +16,16 @@ class Router{
 				$parameters = explode("/", $internalRoute);
 				if (in_array($parameters[0], LANGS)) $lang = array_shift($parameters);
 				else {
+					session_start();
+					if (isset($_SESSION['user']['lang'])) $lang = $_SESSION['user']['lang'];
+					else $lang = DEFAULT_LANG;
 					if ($parameters[0]==="error") {
-						session_start();
-						if (isset($_SESSION['user']['lang'])) {
-							$lang = $_SESSION['user']['lang'];
-						}
 						$langpack = include(ROOT.'/config/langpacks/'.$lang.'_partials.php');
 						include_once(ROOT."/controllers/ErrorController.php");
 						$errorController = new ErrorController($lang, $langpack);
 						$result = $errorController->actionIndex();
 						if ($result) break;
 					}
-					else $lang = DEFAULT_LANG;
 				}
 				$langpack = include(ROOT.'/config/langpacks/'.$lang.'_partials.php');
 				$controllerName = array_shift($parameters).'Controller';

@@ -12,17 +12,19 @@ class Title{
 	}
 	private function getPageName(){
 		if (count($this->pagePartials)===2){
-			if (!in_array($this->pagePartials[1], LANGS)) return "404";
+			if (!empty($this->pagePartials[1])&&!in_array($this->pagePartials[1], LANGS)) {
+				return "404";
+			}
 			else return "index";
 		}
 		else{
 			if (count($this->pagePartials)>2) {
-				if ($this->pagePartials[2]==="user") return $this->pagePartials[3];
-				else return $this->pagePartials[2];
+				if (in_array($this->pagePartials[1], LANGS)) {
+					if ($this->pagePartials[2]==="user") return $this->pagePartials[3];
+					else return $this->pagePartials[2];
+				}
 			}
-			else if(count($this->pagePartials)===3&&in_array($this->pagePartials[1], LANGS)) 
-				return "index";
-			else return "404";
+			return "404";
 		}
 	}
 	public function getTitle(){
