@@ -116,23 +116,25 @@ class User{
     }
     public static function addToRecommended($user_id, $product_id){
         $pdo = DB::getConnection();
-        $stmt1 = $pdo->prepare('SELECT id FROM `recommended` WHERE product_id=:product_id');
+        $stmt1 = $pdo->prepare('SELECT id FROM `recommended` WHERE user_id = :user_id AND product_id = :product_id');
+        $stmt1->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt1->bindParam(':product_id', $product_id, PDO::PARAM_INT);
         $stmt1->execute();
         $userData = $stmt1->fetchAll(PDO::FETCH_ASSOC);
-        if (count($userData)===0) {
-            $stmt2 = $pdo->prepare("SELECT id, brand FROM `products` WHERE id = :product_id");
-            $stmt2->bindParam(':product_id', $product_id, PDO::PARAM_INT);
-            $stmt2->execute();
-            $product = $stmt2->fetch(PDO::FETCH_ASSOC);
-            $product_brand = $product['brand'];
-            $brand_related = $pdo->query("SELECT id FROM `products` WHERE brand = '{$product_brand}' AND id!={$product['id']}")->fetchAll(PDO::FETCH_ASSOC);
-            $brand_related_products_ids = array();
-            foreach ($brand_related as $brand_related_data) {
-               $brand_related_products_ids[] = $brand_related_data['id'];
-            }
-            foreach ($brand_related_products_ids as $id) {
-                $pdo->query("INSERT INTO `recommended` (user_id, product_id) VALUES ({$user_id}, {$id})");
+        $stmt2 = $pdo->prepare("SELECT id, brand FROM `products` WHERE id = :product_id");
+        $stmt2->bindParam(':product_id', $product_id, PDO::PARAM_INT);
+        $stmt2->execute();
+        $product = $stmt2->fetch(PDO::FETCH_ASSOC);
+        $product_brand = $product['brand'];
+        $brand_related = $pdo->query("SELECT id FROM `products` WHERE brand = '{$product_brand}' AND id!={$product['id']}")->fetchAll(PDO::FETCH_ASSOC);
+        $brand_related_products_ids = array();
+        foreach ($brand_related as $brand_related_data) {
+            $brand_related_products_ids[] = $brand_related_data['id'];
+        }
+        foreach ($brand_related_products_ids as $id) {
+            $exists = $pdo->query("SELECT id FROM `recommended` WHERE user_id = {$user_id} AND product_id = {$id}")->fetchAll(PDO::FETCH_ASSOC);
+            if (empty($exists)) {
+                    $pdo->query("INSERT INTO `recommended` (user_id, product_id) VALUES ({$user_id}, {$id})");
             }
         }
     }
