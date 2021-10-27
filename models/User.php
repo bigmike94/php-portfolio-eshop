@@ -95,6 +95,25 @@ class User{
         $userData = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if ($userData) return $userData;
     }
+    public function getOrdersList(){
+        $stmt = $this->pdo->prepare("SELECT id, order_time, delivery_time, products AS prods_assoc, payment_status, status  FROM `orders` ORDER BY id DESC");
+        $stmt->execute();
+        $ordersList = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach($ordersList as &$ordersListItem){
+            $orderProducts = json_decode($ordersListItem["prods_assoc"], true);
+            $products_total_price=0;
+            foreach ($orderProducts as $product_id => $quantity) {
+              $product = $this->pdo->query("SELECT products.name, products.price, {$quantity} AS quantity FROM `products` WHERE id = {$product_id}")->fetch(PDO::FETCH_ASSOC);
+              $products_total_price+=$product["price"];
+              $ordersListItem["products"][] = $product;
+              $ordersListItem["total_price"] = $products_total_price;   
+            }
+        }
+        // echo "<pre>";
+        // print_r($ordersList);
+        // echo "</pre>";die();
+        return $ordersList;
+    }
     public static function addToRecommended($user_id, $product_id){
         $pdo = DB::getConnection();
         $stmt1 = $pdo->prepare('SELECT id FROM `recommended` WHERE product_id=:product_id');

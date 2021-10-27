@@ -23,6 +23,7 @@ return array(
 			"complete_date"=>"სავარაუდო მიწოდების დრო",
 			"total"=>"ჯამი",
 			"stat_progr"=>"მიმდინარე",
+			"stat_wait"=>"გადახდის მოლოდინში...",
 			"stat_complete"=>"შესრულებული",
 			"pay_true"=>"გადახდილია",
 			"pay_false"=>"გადაუხდელია"

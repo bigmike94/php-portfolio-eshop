@@ -62,7 +62,10 @@ class UserController{
      public function actionOrders(){ 
         $title = $this->title->getTitle();
         $loggedIn = $this->user->checkLogged();
-        if($loggedIn) require_once(ROOT.'/views/user/orders.php');
+        if($loggedIn) {
+            $orders = $this->user->getOrdersList();
+            require_once(ROOT.'/views/user/orders.php');
+        }
         else header("Location: /{$this->lang}");
         return true; 
     }

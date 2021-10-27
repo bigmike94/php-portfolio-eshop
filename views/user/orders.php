@@ -27,44 +27,72 @@
                                      </tr>
                                  </thead>
                                  <tbody class="orders-row">
-                                 <tr>
-                                    <td>
-                                      1245214214
-                                    </td>
-                                    <td id="orders-prods-td">
-                                      <ul>
-                                         <li>Product 1...<strong>(2)</strong></li>
-                                         <li>Product 2...<strong>(2)</strong></li>
-                                         <li>Product 3...<strong>(2)</strong></li>
-                                         <br>
-                                         <strong>
-                                          <?php echo $this->langpack['account']['orders_page']["total"]?>:&nbsp;
-                                          </strong>
-                                          <span>45565₾</span>
-                                      </ul>
-                                    </td>
-                                    <td>
-                                       <span class="stat-true">
-                                          გადახდილია
-                                       </span>
-                                    </td>
-                                    <td>
-                                       <i class="fa fa-calendar"></i>
-                                       <span>23/10/2021</span>
-                                       <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                       <span>10:30</span>
-                                    </td>
-                                    <td>
-                                       <i class="fa fa-calendar"></i>
-                                       <span>23/10/2021</span>
-                                       <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                       <span>10:30</span>
-                                    </td>
-                                    <td>
-                                       <span class="stat-true">
-                                          <?php echo $this->langpack['account']['orders_page']["stat_complete"];?>
-                                       </span>
-                                    </td>
+                                 <?php foreach ($orders as $orderItem): ?>
+                                    <tr>
+                                       <td>
+                                         <?php echo $orderItem["id"];?>
+                                       </td>
+                                       <td id="orders-prods-td">
+                                         <ol>
+                                            <?php foreach ($orderItem["products"] as $product): ?>
+                                               <li>
+                                                <?php echo $product["name"]." - {$product["price"]} ₾"?>
+                                                   <span>(<?php echo $product["quantity"]?>)</span>
+                                                </li>
+                                               <br>
+                                             <?php endforeach;?>
+                                             <div>
+                                                <strong>
+                                                <?php echo $this->langpack['account']['orders_page']["total"]?>:&nbsp;
+                                                </strong>
+                                                <span><?php echo $orderItem["total_price"]?>&nbsp;₾</span>
+                                             </div>
+                                         </ol>
+                                       </td>
+                                       <td>
+                                          <?php if ($orderItem["payment_status"]==0):?>
+                                             <span class="stat-false">
+                                                <?php echo $this->langpack['account']['orders_page']["pay_false"]?>
+                                             </span>
+                                          <?php else: ?>
+                                             <span class="stat-true">
+                                             <?php echo $this->langpack['account']['orders_page']["pay_true"]?>
+                                             </span>
+                                          <?php endif;?>
+                                       </td>
+                                       <td>
+                                          <i class="fa fa-calendar"></i>
+                                          <span><?php echo date("d/m/Y", $orderItem["order_time"])?></span>
+                                          <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                          <span><?php echo date("H:i", $orderItem["order_time"])?></span>
+                                       </td>
+                                       <td>
+                                          <?php if($orderItem["delivery_time"]!==null):?>
+                                          <i class="fa fa-calendar"></i>
+                                          <span><?php echo date("d/m/Y", $orderItem["delivery_time"])?></span>
+                                          <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                          <span><?php echo date("H:i", $orderItem["delivery_time"])?></span>
+                                          <?php else: ?>
+                                          <span>-</span>
+                                          <?php endif; ?>
+                                       </td>
+                                       <td>
+                                          <?php if($orderItem["status"]==0):?>
+                                          <span class="stat-wait">
+                                             <?php echo $this->langpack['account']['orders_page']["stat_wait"];?>
+                                          </span>
+                                          <?php elseif($orderItem["status"]==1):?>
+                                          <span class="stat-progr">
+                                             <?php echo $this->langpack['account']['orders_page']["stat_progr"];?>
+                                          </span>
+                                          <?php else: ?>
+                                          <span class="stat-true">
+                                             <?php echo $this->langpack['account']['orders_page']["stat_complete"];?>
+                                          </span>
+                                          <?php endif; ?>
+                                       </td>
+                                    </tr>
+                                 <?php endforeach; ?>
                                  </tbody>
                              </table>
                          </div>

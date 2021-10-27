@@ -2595,6 +2595,17 @@ h2.title {
   color: orange; 
   font-weight: bold;
 }
+.stat-wait{
+  color: blue;
+  font-weight: bold;
+}
+#orders-prods-td > ol{
+  list-style-position: outside; 
+  text-align: left;
+}
+#orders-prods-td > ol > div{
+  text-align:right;
+}
 tbody.orders-row td {
   padding: 10px!important;
   text-align: center;

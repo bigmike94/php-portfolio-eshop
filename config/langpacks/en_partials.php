@@ -23,7 +23,8 @@ return array(
 			"order_date"=>"Order time",
 			"complete_date"=>"Estimate delivery time",
 			"total"=>"Total",
-			"stat_progr"=>"in progress",
+			"stat_progr"=>"In progress",
+			"stat_wait"=>"Waiting for payment...",
 			"stat_complete"=>"Complete",
 			"pay_true"=>"Payed",
 			"pay_false"=>"Not payed"
