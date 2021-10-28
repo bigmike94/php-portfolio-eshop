@@ -1,4 +1,4 @@
-<strong>ITC shop site for portfolio</strong>
+<h1>ITC shop site for portfolio</h1>
 <h2>Main functionality</h2>
 <hr>
 <ul>
