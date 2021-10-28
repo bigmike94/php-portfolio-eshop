@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Окт 28 2021 г., 10:38
+-- Время создания: Окт 28 2021 г., 21:24
 -- Версия сервера: 5.7.24
 -- Версия PHP: 7.2.19
 
@@ -68,6 +68,27 @@ INSERT INTO `category` (`id`, `ge_name`, `en_name`, `sort_order`, `status`) VALU
 (2, 'პლანშეტები', 'Tablets', 2, 1),
 (3, 'მონიტორები', 'Monitors', 3, 1),
 (4, 'სათამაშო PC', 'Gamer PCs', 4, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `ge_address` varchar(255) NOT NULL,
+  `en_address` varchar(255) NOT NULL,
+  `mob_phone_num` varchar(20) NOT NULL,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `contact`
+--
+
+INSERT INTO `contact` (`id`, `ge_address`, `en_address`, `mob_phone_num`, `email`) VALUES
+(1, 'თბილისი, დ.აღმაშენებლის #14 ', 'Tbilisi, D.Aghmashenebeli #14', '+995-555-55-55-55', 'geo@eshopper.ge');
 
 -- --------------------------------------------------------
 
@@ -178,7 +199,6 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `address`, `password`) VALUES
 (52, 'Misha Kirichenko', 'misha.kirichenko.2994@gmail.com', '597-73-39-94', 'Tbilisi, Tseretlis #59', 'bfcdb0102c87c0e4d59eceffb5658ac6');
-
 --
 -- Индексы сохранённых таблиц
 --
@@ -193,6 +213,12 @@ ALTER TABLE `brands`
 -- Индексы таблицы `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `contact`
+--
+ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -236,6 +262,12 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT для таблицы `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
@@ -257,7 +289,7 @@ ALTER TABLE `recommended`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
