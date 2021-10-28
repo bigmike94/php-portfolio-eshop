@@ -49,30 +49,6 @@ class User{
         if (isset($_SESSION['user'])) return true;
         return false;
     }
-    public function checkName($name){
-        $pattern = "/^([a-zA-Z]{2,})\s([a-zA-Z]{2,})$/";
-        if(preg_match($pattern, $name)) return true;
-        return false;
-    }
-    public function checkPhone($phone){
-        $pattern = "/^(5\d{2})-(\d{2})-(\d{2})-(\d{2})$/";
-        if(preg_match($pattern, $phone)) return true;
-        return false;
-    }
-    public function checkAddress($address){
-        $pattern = "/^[a-zA-z]{3,}(\s)?,(\s)?[a-zA-z]{3,}\s#(\d){1,}(\s)?(\w)?$/";
-        if(preg_match($pattern, $address)) return true;
-        return false;
-    }
-    public function checkPassword($password){
-        $pattern = "/^(?=.*\d)(?=.*[A-Z]).{8,}$/";
-        if(preg_match($pattern, $password)) return true;
-        return false;
-    }
-    public function checkEmail($email){
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) return true;
-        return false;
-    }
     public function checkDataExist($email, $phone){     
         $stmt = $this->pdo->prepare("SELECT COUNT(id) FROM `users` WHERE email=:email OR phone=:phone");
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);

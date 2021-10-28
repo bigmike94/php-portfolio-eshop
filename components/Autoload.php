@@ -1,5 +1,5 @@
 <?php
-spl_autoload_register(function($class_name){
+function autoLoader($class_name){
     $array_paths = array(
         '/models/',
         '/components/',
@@ -11,4 +11,5 @@ spl_autoload_register(function($class_name){
             include_once $path;
         }
     }
-});
+}
+spl_autoload_register("autoLoader");

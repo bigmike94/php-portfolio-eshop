@@ -12,7 +12,7 @@ return array(
 	),
 	"account"=>array(
 		"cart"=>"Cart",
-		"enter"=>"Enter profile",
+		"enter"=>"Authorization",
 		"register"=>"Registration",
 		"logout"=>"Logout",
 		"orders"=>"Orders",
@@ -99,6 +99,25 @@ return array(
 			"continue"=>"Continue",
 			"log4chk"=>"You must login for checkout",
 			"success"=>"You have successfully checked out produсts from cart. Invoice is sent to your email"
+	),
+	"contact"=>array(
+		"get_in_touch"=>"Get in touch",
+		"contact_info"=>"Contact Info",
+		"placeholders"=>array(
+			"name"=>"Name, Surname",
+			"subject"=>"Subject",
+			"msg"=>"Your message here",
+			"mail"=>"Your email"
+		),
+		"send"=>"Send",
+		"mobile"=>"Mobile",
+		"mail"=>"Email",
+		"co_name"=>"E-Shopper Inc.",
+		"errors"=>array(
+			"subject"=>"Subject length must be more than 5 characters",
+			"msg"=>"Message length must be more than 10 characters"
+		),
+		"msg_sent"=>"Message was successfully sent"
 	)
 );
 ?>

@@ -28,10 +28,10 @@
                             <div class="social-icons pull-right">
                                 <ul class="nav navbar-nav">
                                     <li>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a href="https://myaccount.google.com/?utm_source=sign_in_no_continue"><i class="fa fa-google-plus"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -124,15 +124,17 @@
                                     </li>
                                     <?php else: ?>
                                     <li>
-                                        <a href="<?php echo'/'.$this->lang.'/user/login/';?>">
+                                        <?php $pgnm = $this->langpack["account"]["enter"];?>
+                                        <a href="<?php echo'/'.$this->lang.'/user/login/';?>" <?php echo $title===$pgnm?"class='active'":"";?>>
                                             <i class="fa fa-sign-in"></i>
-                                            <?php echo $this->langpack["account"]["enter"]?>
+                                            <?php echo $pgnm;?>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo'/'.$this->lang.'/user/register/';?>">
+                                        <?php $pgnm = $this->langpack["account"]["register"];?>
+                                        <a href="<?php echo'/'.$this->lang.'/user/register/';?>" <?php echo $title===$pgnm?"class='active'":"";?>>
                                             <i class="fa fa-unlock"></i>
-                                            <?php echo $this->langpack["account"]["register"]?>
+                                            <?php echo $pgnm;?>
                                         </a>
                                     </li>
                                     <?php endif; ?>

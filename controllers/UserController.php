@@ -19,15 +19,15 @@ class UserController{
             $phone = $_POST['phone'];
             $address = $_POST['address'];
             $password = $_POST['password'];
-            if (!$this->user->checkName($name)) 
+            if (!Validator::checkName($name)) 
                 {$errors[] = $this->langpack['reg_and_sign']['errors']['name'];}
-            if (!$this->user->checkEmail($email)) 
+            if (!Validator::checkEmail($email)) 
                 {$errors[] = $this->langpack['reg_and_sign']['errors']['email'];}
-            if (!$this->user->checkPhone($phone)) 
+            if (!Validator::checkPhone($phone)) 
                 {$errors[] = $this->langpack['reg_and_sign']['errors']['phone'];}
-            if (!$this->user->checkAddress($address)) 
+            if (!Validator::checkAddress($address)) 
                 {$errors[] = $this->langpack['reg_and_sign']['errors']['address'];}
-            if (!$this->user->checkPassword($password)) 
+            if (!Validator::checkPassword($password)) 
                 {$errors[] = $this->langpack['reg_and_sign']['errors']['password'];}
             if ($this->user->checkDataExist($email, $phone))
                 {$errors[] = $this->langpack['reg_and_sign']['errors']['data_exist'];}
@@ -84,17 +84,17 @@ class UserController{
                 $address = $_POST["address"];
                 $msg_from = "data_upd";
                 if (!empty($email)) {
-                    if ($this->user->checkEmail($_POST['email'])) 
+                    if (Validator::checkEmail($_POST['email'])) 
                         {$updatesArray["email"] = $email;}
                     else $errors[] = $this->langpack['reg_and_sign']['errors']['email'];
                 }
                 if (!empty($phone)) {
-                    if ($this->user->checkPhone($_POST['phone'])) 
+                    if (Validator::checkPhone($_POST['phone'])) 
                         {$updatesArray["phone"] = $phone;}
                     else $errors[] = $this->langpack['reg_and_sign']['errors']['phone'];
                 }
                 if (!empty($address)) {
-                    if ($this->user->checkAddress($_POST['address'])) 
+                    if (Validator::checkAddress($_POST['address'])) 
                         {$updatesArray["address"] = $address;}
                     else $errors[] = $this->langpack['reg_and_sign']['errors']['address'];
                 }
@@ -111,7 +111,7 @@ class UserController{
                         $errors = $this->langpack['reg_and_sign']['errors']['old_password'];
                     }
                     else {
-                        if (!$this->user->checkPassword($new_password)) {
+                        if (!Validator::checkPassword($new_password)) {
                             $errors[] = $this->langpack['reg_and_sign']['errors']['password'];;
                         }
                         if ($old_password===$new_password) {
