@@ -1,5 +1,5 @@
-<h1>ITC shop site for portfolio</h1>
-<h2>Main functionality in PHP</h2>
+<strong>ITC shop site for portfolio</strong>
+<h2>Main functionality</h2>
 <hr>
 <ul>
   <li>Language change</li>
