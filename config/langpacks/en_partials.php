@@ -50,7 +50,7 @@ return array(
 		"start"=>"User registration",
 		"signup"=>"Signup",
 		"sign_in"=>"Sign in",
-		"profile"=>"profile",
+		"profile"=>"Profile",
 		'profile_char'=>"'s",
 		"enter"=>"Enter",
 		"placeholders"=>array(

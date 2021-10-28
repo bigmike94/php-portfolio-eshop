@@ -14,7 +14,8 @@ class Products{
 		if ($ctgId) {
 			$page = intval($page);
 			$offset = ($page - 1)*$this->defaultAmount;
-			$prodListByCtg = $this->pdo->prepare("SELECT prod.id, prod.name, prod.code, prod.price, prod.availability, prod.brand, prod.ge_description, prod.en_description, prod.category_id, prod.is_new,prod.status, prod.img, ctg.en_name as ctg_en_name, ctg.ge_name as ctg_ge_name FROM `products` prod INNER JOIN `category` ctg ON prod.category_id = ctg.id 
+			$prodListByCtg = $this->pdo->prepare("SELECT prod.id, prod.name, prod.code, prod.price, prod.availability, prod.brand_id, prod.ge_descr, prod.en_descr, prod.category_id, prod.is_new,prod.status, prod.img, br.name AS brand, ctg.en_name as ctg_en_name, ctg.ge_name AS ctg_ge_name FROM `products` prod INNER JOIN `category` ctg ON prod.category_id = ctg.id INNER JOIN
+				`brands` br ON prod.brand_id = br.id
 				WHERE prod.status = 1 AND prod.category_id=:ctgId ORDER BY prod.id DESC LIMIT {$this->defaultAmount} OFFSET {$offset}");
 			$prodListByCtg->bindParam(':ctgId', $ctgId, PDO::PARAM_INT);
 			$prodListByCtg->execute();
@@ -23,7 +24,7 @@ class Products{
 		}
 	}
 	public function getProductById($id){
-		$product = $this->pdo->prepare("SELECT * FROM `products` WHERE status = 1 AND id=:id");
+		$product = $this->pdo->prepare("SELECT prod.id, prod.name, prod.is_new, prod.availability, prod.code, prod.price, prod.en_descr, prod.ge_descr, prod.img, br.name AS brand FROM `products` prod INNER JOIN `brands` br ON prod.brand_id = br.id WHERE prod.status = 1 AND prod.id=:id");
 		$product->bindParam(':id', $id, PDO::PARAM_INT);
 		$product->execute();
 		$product = $product->fetch(PDO::FETCH_ASSOC);

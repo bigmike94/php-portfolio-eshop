@@ -8,8 +8,6 @@
         <title><?php echo $title; ?></title>
         <link href="/template/css/bootstrap.min.css" rel="stylesheet">
         <link href="/template/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/template/css/prettyPhoto.css" rel="stylesheet">
-        <link href="/template/css/price-range.css" rel="stylesheet">
         <link href="/template/css/main.css" rel="stylesheet">
         <link href="/template/css/responsive.css" rel="stylesheet">
     </head><!--/head-->
@@ -93,21 +91,25 @@
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">                       
                                     <li>
-                                        <a href="/<?php echo $this->lang.'/cart'?>">
+                                        <?php $pgnm = $this->langpack["account"]["cart"];?>
+                                        <a href="/<?php echo $this->lang.'/cart'?>" <?php echo $title===$pgnm?"class='active'":"";?>>
                                             <i class="fa fa-shopping-cart"></i>
-                                            <?php echo $this->langpack["account"]["cart"]?>
+                                            <?php echo $pgnm; ?>
                                             <span id="cart"></span>
                                         </a>
                                     </li>
                                     <?php if (isset($_SESSION["user"])):?>
                                     <li>
-                                        <a href="<?php echo'/'.$this->lang.'/user/orders/';?>">
+                                        <?php $pgnm = $this->langpack["account"]["orders"];?>
+                                        <a href="<?php echo'/'.$this->lang.'/user/orders/';?>" 
+                                            <?php echo $title===$pgnm?"class='active'":"";?>>
                                             <i class="fa fa-gift"></i>
-                                           <?php echo $this->langpack["account"]["orders"]?>
+                                           <?php echo $pgnm;?>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="<?php echo'/'.$this->lang.'/user/profile/';?>">
+                                        <?php $pgnm = $this->langpack["reg_and_sign"]["profile"];?>
+                                        <a href="<?php echo'/'.$this->lang.'/user/profile/';?>" <?php echo $title===$pgnm?"class='active'":"";?>>
                                             <i class="fa fa-user"></i>
                                             <?php echo $_SESSION["user"]["name"];?>
                                             <?php echo $this->langpack["reg_and_sign"]["profile_char"];?>

@@ -121,12 +121,11 @@ class User{
         $stmt1->bindParam(':product_id', $product_id, PDO::PARAM_INT);
         $stmt1->execute();
         $userData = $stmt1->fetchAll(PDO::FETCH_ASSOC);
-        $stmt2 = $pdo->prepare("SELECT id, brand FROM `products` WHERE id = :product_id");
+        $stmt2 = $pdo->prepare("SELECT id, brand_id FROM `products` WHERE id = :product_id");
         $stmt2->bindParam(':product_id', $product_id, PDO::PARAM_INT);
         $stmt2->execute();
         $product = $stmt2->fetch(PDO::FETCH_ASSOC);
-        $product_brand = $product['brand'];
-        $brand_related = $pdo->query("SELECT id FROM `products` WHERE brand = '{$product_brand}' AND id!={$product['id']}")->fetchAll(PDO::FETCH_ASSOC);
+        $brand_related = $pdo->query("SELECT id FROM `products` WHERE brand_id = {$product['brand_id']} AND id!={$product['id']}")->fetchAll(PDO::FETCH_ASSOC);
         $brand_related_products_ids = array();
         foreach ($brand_related as $brand_related_data) {
             $brand_related_products_ids[] = $brand_related_data['id'];
