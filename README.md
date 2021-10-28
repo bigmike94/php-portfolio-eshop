@@ -1,4 +1,3 @@
-# php-portfolio-eshop
 <h1>ITC shop site for portfolio</h1>
 <h2>Main functionality in PHP</h2>
 <hr>
