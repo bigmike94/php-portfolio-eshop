@@ -5,9 +5,10 @@
             <div class="row">
                <div class="col-sm-6 col-sm-offset-1">
                     <?php if ($result): ?>
-                                <h4 style="text-align: center;" class="alert alert-success">
+                                <h4 class="alert alert-success text-center">
                                     <?php echo $this->langpack['contact']['msg_sent']?>
                                 </h4>
+                                <?php echo "<meta http-equiv='refresh' content='1; url=/$this->lang'>"?>
                                 <?php else: ?>
                                         <?php if (isset($errors) && is_array($errors)): ?>
                                         <ul>

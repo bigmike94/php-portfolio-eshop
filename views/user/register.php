@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-4">
 					<?php if ($result): ?>
-                    <h3 style="text-align: center;" class="alert alert-success">
+                    <h3 class="alert alert-success text-center">
                     	<?php echo $this->langpack['reg_and_sign']['registered']?>	
                     </h3>
 	                <?php else: ?>
