@@ -4,9 +4,10 @@
 <hr>
 <ul>
   <li>Language change</li>
+  <li>User: Registration</li>
+  <li>User: Login & Logout</li>
+  <li>Profile information update</li>
   <li>Cart: add & delete & change quantity</li>
   <li>Checkout (insert to db + send invoice on email)</li>
-  <li>Contact form message</li>
-  <li>Login & Logout</li>
-  <li>Profile information update</li>
+  <li>Sending message to email from contact form</li>
 </ul>
