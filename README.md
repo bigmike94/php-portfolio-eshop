@@ -8,6 +8,7 @@
   <li>Cart: add & delete & change quantity</li>
   <li>Products categorization</li>
   <li>Pagination</li>
-  <li>Checkout (insert to db + send invoice on email)</li>
+  <li>Generating PDF for invoices</li>
+  <li>Checkout (insert to db + send invoice in PDF on email)</li>
   <li>Sending message to admin's email from contact form</li>
 </ul>
