@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Окт 28 2021 г., 21:24
+-- Время создания: Окт 30 2021 г., 09:27
 -- Версия сервера: 5.7.24
 -- Версия PHP: 7.2.19
 
@@ -88,7 +88,7 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `ge_address`, `en_address`, `mob_phone_num`, `email`) VALUES
-(1, 'თბილისი, დ.აღმაშენებლის #14 ', 'Tbilisi, D.Aghmashenebeli #14', '+995-555-55-55-55', 'geo@eshopper.ge');
+(1, 'თბილისი, დ.აღმაშენებლის #14 ', 'Tbilisi, D.Aghmashenebeli #14', '+995-555-55-55-55', 'geo_eshopper@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -113,7 +113,15 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `user_id`, `order_time`, `delivery_time`, `products`, `payment_status`, `status`) VALUES
 (64, 52, 1635027220, 1635321600, '{\"1\":1,\"2\":1,\"47\":1}', 1, 2),
 (65, 52, 1635027918, NULL, '{\"7\":2,\"8\":2,\"32\":2}', 0, 0),
-(66, 52, 1635361528, NULL, '{\"5\":1,\"7\":2,\"32\":1}', 0, 0);
+(66, 52, 1635361528, NULL, '{\"5\":1,\"7\":2,\"32\":1}', 0, 0),
+(67, 54, 1635584304, NULL, '{\"45\":1,\"47\":1,\"48\":1}', 0, 0),
+(68, 54, 1635584379, NULL, '{\"45\":1,\"47\":1,\"48\":1}', 0, 0),
+(69, 54, 1635585518, NULL, '{\"45\":1,\"47\":1,\"48\":1}', 0, 0),
+(70, 52, 1635585606, NULL, '{\"45\":1,\"47\":1,\"48\":1}', 0, 0),
+(71, 52, 1635585644, NULL, '{\"7\":1,\"8\":1,\"32\":1,\"45\":1,\"47\":1,\"48\":1}', 0, 0),
+(72, 52, 1635585675, NULL, '{\"7\":1,\"8\":1}', 0, 0),
+(73, 52, 1635585949, NULL, '{\"8\":3,\"48\":1}', 0, 0),
+(74, 52, 1635586002, NULL, '{\"47\":1,\"48\":2}', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -147,7 +155,7 @@ INSERT INTO `products` (`id`, `name`, `category_id`, `code`, `price`, `availabil
 (4, 'Asus X751MA', 1, 2028367, 999, 1, '2', '', '', 0, 1, '/uploads/products-imgs/asus-x751ma.jpg'),
 (5, 'Samsung Galaxy Tab S 10.5 16GB', 2, 1129365, 780, 1, '4', '', '', 1, 1, '/uploads/products-imgs/Samsung-Galaxy-Tab-S-10.5 16GB.jpg'),
 (7, 'Gazer Tegra Note 7', 2, 683364, 250, 1, '5', '', '', 0, 1, '/uploads/products-imgs/Gazer-Tegra-Note-7.jpg'),
-(8, '23\" Dell E2314H Black', 3, 355025, 175, 1, '6', '', '', 0, 1, '/uploads/products-imgs/23-Dell-E2314H-Black.jpg'),
+(8, '23\" Dell E2314H Black', 3, 355025, 174.9, 1, '6', '', '', 0, 1, '/uploads/products-imgs/23-Dell-E2314H-Black.jpg'),
 (32, 'Samsung Galaxy Tab S 8.4 16GB', 2, 1128670, 639, 1, '4', '', '', 0, 1, '/uploads/products-imgs/Samsung-Galaxy-Tab-S-8.4-16GB.jpg'),
 (45, 'HP Stream', 1, 85864342, 599, 1, '3', '', '', 1, 1, '/uploads/products-imgs/hp-stream.jpg'),
 (47, 'ASUS ZenBook 13 Ultra-Slim Laptop, 13.3” OLED FHD NanoEdge Bezel', 1, 2014527, 1899, 1, '2', '<li>13.3 inch OLED 400nits Full HD (1920 x 1080) Wide View 4-way NanoEdge bezel display</li> \r\n<li>11th generation Intel Core i7-1165G7 Quad Core Processor (12M Cache, up to 4.70 GHz)</li>\r\n<li>ErgoLift hinge and backlit keyboard and NumberPad</li> \r\n<li>Fast storage and memory featuring 512GB PCIe NVMe M.2 SSD with 8GB LPDDR4X RAM</li> \r\n<li>Built-in IR camera for facial recognition sign in with Windows Hello</li>\r\n<li>Windows 10 Home Sleek and lightweight 2.45 lbs for comfortable portability</li>\r\n<li>ASUS AI Noise-Canceling Technology employs machine learning to isolate unwanted noise</li>\r\n<li>MIL-STD 810G military standard for reliability and durability</li> \r\n<li>Carry sleeve and USB-C to audio jack adapter included</li>', '', 1, 1, '/uploads/products-imgs/ASUS-ZenBook-13 Ultra-Slim Laptop-13.3”-OLED-FHD-NanoEdge-Bezel.jpg'),
@@ -176,7 +184,10 @@ INSERT INTO `recommended` (`id`, `user_id`, `product_id`) VALUES
 (131, 52, 5),
 (132, 52, 1),
 (133, 52, 4),
-(134, 52, 47);
+(134, 52, 47),
+(135, 54, 32),
+(136, 54, 48),
+(137, 54, 2);
 
 -- --------------------------------------------------------
 
@@ -198,7 +209,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `address`, `password`) VALUES
-(52, 'Misha Kirichenko', 'misha.kirichenko.2994@gmail.com', '597-73-39-94', 'Tbilisi, Tseretlis #59', 'bfcdb0102c87c0e4d59eceffb5658ac6');
+(52, 'Misha Kirichenko', 'misha.kirichenko.2994@gmail.com', '597-73-39-94', 'Tbilisi, Tseretlis #59', 'bfcdb0102c87c0e4d59eceffb5658ac6'),
+(54, 'Oksana Kirichenko', 'okspochta@mail.ru', '597-07-07-00', 'Tbilisi, Tsereteli #59', '5cde3ed78ad72e99232dc56d939a849f');
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -271,7 +284,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
@@ -283,13 +296,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `recommended`
 --
 ALTER TABLE `recommended`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

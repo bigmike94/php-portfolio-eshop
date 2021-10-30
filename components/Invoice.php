@@ -52,7 +52,7 @@ class Invoice extends tFPDF{
 			'ge'=>array
 			(
 				"msg_1"=>"ძვირფასო", 
-				"msg_2"=>"თქვენ უნდა გადმორიცხოთ ჯამის მთლიანი თანხა ჩვენს საბანკო",
+				"msg_2"=>"თქვენ უნდა გადმორიცხოთ საერთო ჯამის მთლიანი თანხა ჩვენს საბანკო",
 				"msg_3"=>"ანგარიშზე არაუგვიანეს 2 სამუშაო დღისა, წინააღმდეგ შემთხვევაში თქვენი შეკვეთა გაუქმდება.",
 				"msg_4"=>"საბანკო გადმორიცხვისას, დანიშნულებაში გთხოვთ მიუთითოთ ინვოისი #.",
 				"msg_5"=>"გადახდის შემდგომ სერვისის გაწევა მოხდება",
@@ -84,7 +84,7 @@ class Invoice extends tFPDF{
 		$this->SetFont('DejaVu','U',14);
 	    $this->Cell(50);
 	    $this->SetFont('DejaVu','',12);
-	    $this->Cell(175, 10, date("d/m/Y", time()), 0, 0,'R');
+	    $this->Cell(175, 10, date("d/m/Y, H:i", time()), 0, 0,'R');
 	    $this->Ln(15);
 	   	$this->SetFont('DejaVu','',12);
 	    $this->Cell(0,10, $this->langpack['fields'][$this->lang]["id"].": ".$this->langpack['values'][$this->lang]["id"],0,0,'L');

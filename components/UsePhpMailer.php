@@ -15,7 +15,8 @@ class UsePhpMailer{
         $this->mailer->SMTPAuth = $mailSettings["SMTPAuth"];
         $this->mailer->Username = $mailSettings["Username"];
         $this->mailer->CharSet = "UTF-8"; 
-        $this->to = $mailSettings["AdminMail"];                  
+        $this->admin = $mailSettings["AdminMail"];
+        $this->from = $mailSettings["MailFrom"];                  
         $this->mailer->Password = $mailSettings["Password"]; 
         $this->mailer->SMTPSecure =  $mailSettings["SMTPSecure"];
         $this->mailer->Port = $mailSettings["Port"];    
@@ -23,14 +24,13 @@ class UsePhpMailer{
     public function sendContactForm($name, $email, $subject, $msg){
         try {
             $this->mailer->isHTML(true);
-            $this->mailer->setFrom($this->mailer->Username, "EshopperAdmin");
-            $this->mailer->addAddress($this->to);
+            $this->mailer->setFrom($this->mailer->Username, $this->from);
+            $this->mailer->addAddress($this->admin);
             $this->mailer->Subject = $subject; 
             $this->mailer->Body = 
             "<p><b>{$this->langpack['contact']['placeholders']['name']}:</b>&nbsp;{$name}</p>
             <p><b>{$this->langpack['contact']['mail']}:</b>&nbsp;{$email}</p>
             <hr>
-            <p><b>{$this->langpack['contact']['placeholders']['subject']}:</b>&nbsp;{$subject}</p><hr>
             <pre>{$msg}</pre>";
             return $this->mailer->send();
         } catch (Exception $e) {
@@ -58,7 +58,7 @@ class UsePhpMailer{
             $invoice->outputFile($full_path);
             $this->mailer->isHTML(true);
             $this->mailer->setFrom($this->mailer->Username, "E-shopper");
-            $this->mailer->addAddress($this->to);
+            $this->mailer->addAddress($email);
             $this->mailer->Subject = "Invoice #{$invoice_number}";
             $this->mailer->Body = $this->langpack["invoices"]["details"];
             //add attachment

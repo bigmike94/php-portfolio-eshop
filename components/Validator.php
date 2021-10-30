@@ -20,7 +20,7 @@ class Validator{
         if(preg_match($pattern, $password)) return true;
         return false;
     }
-    public static static function checkEmail($email){
+    public static function checkEmail($email){
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) return true;
         return false;
     }
