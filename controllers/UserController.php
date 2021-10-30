@@ -63,7 +63,7 @@ class UserController{
         $title = $this->title->getTitle();
         $loggedIn = $this->user->checkLogged();
         if($loggedIn) {
-            $orders = $this->user->getOrdersList();
+            $orders = $this->user->getOrdersList($_SESSION['user']['id']);
             require_once(ROOT.'/views/user/orders.php');
         }
         else header("Location: /{$this->lang}");
@@ -134,8 +134,7 @@ class UserController{
         return true;
     }
     public function actionLogout(){
-        session_start();
-        unset($_SESSION["user"]);
+        session_destroy();
         header("Location: /{$this->lang}");
     }
 }

@@ -15,7 +15,7 @@ return array(
 		"enter"=>"Authorization",
 		"register"=>"Registration",
 		"logout"=>"Logout",
-		"orders"=>"Orders",
+		"orders"=>"Orders history",
 		"orders_page"=>array(
 			"order_no"=>"Order #",
 			"products"=>"Products",
@@ -27,7 +27,8 @@ return array(
 			"stat_wait"=>"Waiting for payment...",
 			"stat_complete"=>"Complete",
 			"pay_true"=>"Payed",
-			"pay_false"=>"Not payed"
+			"pay_false"=>"Not payed",
+			"no_order"=>"So far you have not ordered anything"
 		)
 	),
 	"product"=>array(

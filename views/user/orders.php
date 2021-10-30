@@ -1,6 +1,7 @@
 <?php include (ROOT."/views/layouts/header.php"); ?>
  <main>
       <div class="container">
+         <?php if (!empty($orders)):?>
              <div class="row">
                  <section id="cart_items">
                      <div class="container">
@@ -108,6 +109,15 @@
                      </div>
                  </section> <!--/#cart_items-->
              </div>
+              <?php else: ?>
+               <div class="row">
+                  <div class="col-md-5 col-md-offset-4">
+                     <div class="alert alert-warning">
+                        <?php echo $this->langpack['account']['orders_page']["no_order"];?>
+                     </div>
+                  </div>
+               </div>
+            <?php endif; ?>
       </div>
 </main>
 <?php include (ROOT."/views/layouts/footer.php"); ?>

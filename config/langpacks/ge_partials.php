@@ -14,7 +14,7 @@ return array(
 		"enter"=>"ავტორიზაცია",
 		"register"=>"რეგისტრაცია",
 		"logout"=>"გამოსვლა",
-		"orders"=>"შეკვეთები",
+		"orders"=>"შეკვეთების ისტორია",
 		"orders_page"=>array(
 			"order_no"=>"შეკვეთის #",
 			"products"=>"პროდუქტები",
@@ -26,7 +26,8 @@ return array(
 			"stat_wait"=>"გადახდის მოლოდინში...",
 			"stat_complete"=>"შესრულებული",
 			"pay_true"=>"გადახდილია",
-			"pay_false"=>"გადაუხდელია"
+			"pay_false"=>"გადაუხდელია",
+			"no_order"=>"ჯერ-ჯერობით თქვენ არაფერი შეგიკვეთავთ"
 		)
 	),
 	"product"=>array(

@@ -8,6 +8,6 @@ return array(
 	"login"=>"Authorization",
 	"404"=>"Page is not found",
 	"profile"=>"Profile",
-	"orders"=>"Orders"
+	"orders"=>"Orders history"
 );
 ?>

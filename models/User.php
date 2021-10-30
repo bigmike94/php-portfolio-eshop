@@ -72,8 +72,9 @@ class User{
         $userData = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if ($userData) return $userData;
     }
-    public function getOrdersList(){
-        $stmt = $this->pdo->prepare("SELECT id, order_time, delivery_time, products AS prods_assoc, payment_status, status  FROM `orders` ORDER BY id DESC");
+    public function getOrdersList($user_id){
+        $stmt = $this->pdo->prepare("SELECT id, order_time, delivery_time, products AS prods_assoc, payment_status, status  FROM `orders` WHERE user_id = :user_id ORDER BY id DESC");
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
         $ordersList = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($ordersList as &$ordersListItem){
@@ -86,9 +87,6 @@ class User{
               $ordersListItem["total_price"] = $products_total_price;   
             }
         }
-        // echo "<pre>";
-        // print_r($ordersList);
-        // echo "</pre>";die();
         return $ordersList;
     }
     public static function addToRecommended($user_id, $product_id){
