@@ -37,7 +37,7 @@ class CartController{
                     $userData = $user->checkUserData($email, $password);
                     if (!$userData) $error = $this->langpack['reg_and_sign']['errors']['no_data'];
                     else {
-                        $user->auth($this->lang, $userData['id'], $userData['name']);
+                        $user->auth($this->lang, $userData['id'], $userData['name'], $userData['email']);
                         header("Location: /{$this->lang}/cart"); 
                     }
                 }
@@ -52,10 +52,15 @@ class CartController{
                 // $delivery_time = new DateTime($delivery_time);//date string to dateTime object to set hours
                 // $delivery_time->setTime(12, 0);//set time for delivery time
                 // $delivery_time = $delivery_time->getTimestamp();//convert delivery time to timestamp to insert integer to database
-                $order = $this->cart->insertOrder($_SESSION['user']['id'], $order_time, $_COOKIE['products']);
-                if ($order) {
-                    $_SESSION['order_success'] = true;
-                    setcookie('products', null, -1, '/');
+                $order_id = $this->cart->insertOrder($_SESSION['user']['id'], $order_time, $_COOKIE['products']);
+                if ($order_id) {
+                    $phpMailer = new UsePhpMailer($this->langpack);
+                    $productsList = $this->cart->getProducts(json_decode($_COOKIE['products'], true));
+                    $is_sent = $phpMailer->sendInvoice($this->lang, $productsList, $order_id, $_SESSION["user"]["name"], $_SESSION["user"]['email']);
+                    if ($is_sent) {
+                        $_SESSION['order_success'] = true;
+                        setcookie('products', null, -1, '/');
+                    }
                 }
                 header("Location: /{$this->lang}/cart");
             }

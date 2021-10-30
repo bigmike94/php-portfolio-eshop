@@ -118,6 +118,9 @@ return array(
 			"msg"=>"Message length must be more than 10 characters"
 		),
 		"msg_sent"=>"Message was successfully sent"
+	),
+	"invoices"=>array(
+		"details"=>"Invoice details are in attached file"
 	)
 );
 ?>

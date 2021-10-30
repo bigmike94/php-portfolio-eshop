@@ -26,7 +26,7 @@ function initializeProductsHTML (prodAssoc){
         return data;
     }, "json").done(function(products){
         for (let product in products){
-            productsTotalPrice+=parseInt(products[product]["subtotal"]);
+            productsTotalPrice+=parseFloat(products[product]["subtotal"]);
             productsHtml+=`<tr data-product-id="${products[product]["id"]}">
                                 <td class="cart_product">
                                     <div class="cart-pic">

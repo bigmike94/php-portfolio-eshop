@@ -50,6 +50,10 @@
                                          </ol>
                                        </td>
                                        <td>
+                                             <!---
+                                          payment_status==0 not payed
+                                          payment_status==1 payed
+                                          -->
                                           <?php if ($orderItem["payment_status"]==0):?>
                                              <span class="stat-false">
                                                 <?php echo $this->langpack['account']['orders_page']["pay_false"]?>
@@ -77,6 +81,11 @@
                                           <?php endif; ?>
                                        </td>
                                        <td>
+                                          <!---
+                                          status==0 waiting for client's payment
+                                          status==1 order is payed. Client is wainting for delivery
+                                          status==2 everything is completed
+                                          -->
                                           <?php if($orderItem["status"]==0):?>
                                           <span class="stat-wait">
                                              <?php echo $this->langpack['account']['orders_page']["stat_wait"];?>
@@ -85,7 +94,7 @@
                                           <span class="stat-progr">
                                              <?php echo $this->langpack['account']['orders_page']["stat_progr"];?>
                                           </span>
-                                          <?php else: ?>
+                                          <?php elseif($orderItem["status"]==2): ?>
                                           <span class="stat-true">
                                              <?php echo $this->langpack['account']['orders_page']["stat_complete"];?>
                                           </span>

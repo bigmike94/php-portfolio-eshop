@@ -52,7 +52,7 @@ class UserController{
             $password = $_POST['password'];
             $userData = $this->user->checkUserData($email, $password);
             if (!$userData) $error = $this->langpack['reg_and_sign']['errors']['no_data'];
-            else $this->user->auth($this->lang, $userData['id'], $userData['name']);
+            else $this->user->auth($this->lang, $userData['id'], $userData['name'], $userData['email']);
         }
         $loggedIn = $this->user->checkLogged();
         if(!$loggedIn) require_once(ROOT.'/views/user/login.php');

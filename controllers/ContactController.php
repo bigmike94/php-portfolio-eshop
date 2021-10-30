@@ -27,7 +27,7 @@ class ContactController{
             if (!Validator::checkEmail($email)) 
                 {$errors[] = $this->langpack['reg_and_sign']['errors']['email'];}
             if (empty($errors)){
-            	/*langpack is sent to PHPMailer constructor to get necessary words for message body*/
+            	/*langpack is sent to PHPMailer sendContactForm method to get necessary words for message body*/
                 $result = Contact::sendMessage($this->langpack, $name, $email, $subject, $msg);
             }
         }

@@ -6,6 +6,6 @@ return array(
 	"SMTPAuth"=>true,
 	"Password"=>"8aju2ban4dara",
 	"SMTPSecure"=>"tls",
-	"Port"=>"587"
+	"Port"=>587
 );
 ?>

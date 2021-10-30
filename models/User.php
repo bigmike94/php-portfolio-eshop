@@ -38,11 +38,12 @@ class User{
         if ($userData) return $userData;
         return false;
     }
-    public function auth($lang, $user_id, $user_name){
+    public function auth($lang, $user_id, $user_name, $email){
         session_start();
         $_SESSION['user']['id'] = $user_id;
         $_SESSION['user']['name'] = explode(" ", $user_name)[0];
         $_SESSION['user']['lang'] = $lang;
+        $_SESSION['user']['email'] = $email;
     }
     public function checkLogged(){
         session_start();
