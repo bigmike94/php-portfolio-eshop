@@ -6,6 +6,7 @@
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'reference' => '5053403e5a01d1f5d0ff9592cec7540a7974e938',
+        'reference' => 'd85b00b36be25d74413226e9a00cbdafe261a1f4',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -17,6 +18,7 @@
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'reference' => '5053403e5a01d1f5d0ff9592cec7540a7974e938',
+            'reference' => 'd85b00b36be25d74413226e9a00cbdafe261a1f4',
             'dev_requirement' => false,
         ),
         'phpmailer/phpmailer' => array(

@@ -9,4 +9,5 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'TTFontFile' => $vendorDir . '/setasign/tfpdf/font/unifont/ttfonts.php',
     'tFPDF' => $vendorDir . '/setasign/tfpdf/tfpdf.php',
+>>>>>>> c4294f66157c892b8cfcf814fcddcc6c3a5ffd29
 );

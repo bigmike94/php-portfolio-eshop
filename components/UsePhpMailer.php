@@ -30,6 +30,7 @@ class UsePhpMailer{
             "<p><b>{$this->langpack['contact']['placeholders']['name']}:</b>&nbsp;{$name}</p>
             <p><b>{$this->langpack['contact']['mail']}:</b>&nbsp;{$email}</p>
             <hr>
+            <p><b>{$this->langpack['contact']['placeholders']['subject']}:</b>&nbsp;{$subject}</p><hr>
             <pre>{$msg}</pre>";
             return $this->mailer->send();
         } catch (Exception $e) {
@@ -45,7 +46,6 @@ class UsePhpMailer{
             $totalProducts = count($productsList);
             $productsTotalSum = 0;
             $invoice = new Invoice('L','mm',array(250, 250));
-            //10 is each cell height+header height + some space
             $invoice->setLang($lang);
             $invoice->AddPage();
             $invoice->invoiceMsg($name, $invoice_number);
