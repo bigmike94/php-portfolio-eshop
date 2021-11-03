@@ -1,10 +1,10 @@
-<h1>ITC shop site for portfolio</h1>
+<h1>Eshopper: ITC shop site for portfolio</h1>
 <hr>
 <pre>Two languaged ITC Shop portfolio project</pre>
 <h2>Functionality implemented</h2>
 <hr>
 <ul>
-  <li>Languages switch</li>
+  <li>Languages switching</li>
   <li>User: Registration, Login & Logout, profile information update</li>
   <li>Cart: add & delete & change quantity</li>
   <li>Products categorization</li>
