@@ -10,7 +10,7 @@ class Cart{
 		if (isset($_COOKIE['products'])) {
 			foreach($productsAssoc as $productId => $quantity){
 				$product = $this->pdo->prepare("SELECT products.id, products.name, products.img, products.price, products.code, ${quantity} AS quantity, round($quantity*products.price, 2) AS subtotal FROM `products` WHERE id=:id");
-				$product->bindParam(':id', intval($productId), PDO::PARAM_INT);
+				$product->bindParam(':id', $productId, PDO::PARAM_INT);
 				$product->execute();
 				$product = $product->fetch(PDO::FETCH_ASSOC);
 				$productsArray[] = $product;
