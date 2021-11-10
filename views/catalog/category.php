@@ -17,7 +17,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img class="img-fluid"src="<?php echo $product['img']?>" alt="<?php echo $product[$this->lang.'_name']?>" />
+                                                <img class="img-fluid"src="<?php echo $product['img']?>" alt="<?php echo $product['name']?>" />
                                                 <h2>
                                                     <b id="pricePrefix">₾</b><?php echo $product['price']?>
                                                 </h2>
