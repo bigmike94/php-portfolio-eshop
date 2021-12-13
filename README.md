@@ -9,7 +9,7 @@
   <li>Adding to cart, deleting, changing  product quantity</li>
   <li>Product categorization</li>
   <li>Pagination</li>
-  <li>Generating related to brand recommended products list </li>
+  <li>Generating recommended products list related to brand </li>
   <li>Generating invoices in PDF Format</li>
   <li>Checkout (inserting order to db + sending invoice on email)</li>
   <li>Sending message to admin's email from the contact form</li>
