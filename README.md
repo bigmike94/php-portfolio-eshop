@@ -1,7 +1,7 @@
 <h1>Eshopper: ITC shop site for portfolio</h1>
 <hr>
-<pre>Two languaged ITC Shop portfolio project</pre>
-<h2>Functionality implemented</h2>
+<pre>Billingual ITC Shop portfolio project</pre>
+<h2>Implemented Functionality</h2>
 <hr>
 <ul>
   <li>Languages switching</li>
