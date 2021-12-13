@@ -1,20 +1,20 @@
-<h1>Eshopper: ITC shop site for portfolio</h1>
+<h1>Eshopper: ITC store site for portfolio</h1>
 <hr>
-<pre>Bilingual ITC Shop portfolio project</pre>
+<pre>Bilingual ITC store portfolio project</pre>
 <h2>Implemented Functionality</h2>
 <hr>
 <ul>
-  <li>Languages switching</li>
-  <li>User: Registration, Login & Logout, profile information update</li>
-  <li>Cart: add & delete & change quantity</li>
-  <li>Products categorization</li>
+  <li>Switching languages</li>
+  <li>User registration, Login & Logout, profile information update</li>
+  <li>Adding to cart, deleting, changing  product quantity</li>
+  <li>Product categorization</li>
   <li>Pagination</li>
-  <li>Creating recommended products list (brand related)</li>
-  <li>Generating PDF for invoices</li>
-  <li>Checkout (insert to db + send invoice in PDF on email)</li>
-  <li>Sending message to admin's email from contact form</li>
+  <li>Generating related to brand recommended products list </li>
+  <li>Generating invoices in PDF Format</li>
+  <li>Checkout (inserting order to db + sending invoice on email)</li>
+  <li>Sending message to admin's email from the contact form</li>
 </ul>
-<h2>Libraries used</h2>
+<h2>Used Libraries</h2>
 <hr>
 <ul>
   <li>PHPMailer</li>
